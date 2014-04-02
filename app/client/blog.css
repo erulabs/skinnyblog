@@ -1,0 +1,130 @@
+body {
+  font-size: 1em; }
+  body .header {
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    font-size: 1.5em;
+    background-color: #b3b3b3;
+    padding-top: 10px;
+    padding-bottom: 15px; }
+    body .header .subheader {
+      margin-top: 0px;
+      padding-top: 0px;
+      font-size: 3em;
+      font-family: 'Bangers', cursive; }
+      body .header .subheader button {
+        font-size: 1em;
+        position: relative;
+        top: -2px;
+        outline: none; }
+      body .header .subheader button:focus {
+        outline: none; }
+    body .header .photo {
+      border-radius: 70px;
+      width: 120px;
+      height: 118px;
+      margin: 0 auto;
+      margin-top: 10px;
+      background-color: #fff;
+      margin-bottom: 10px; }
+  body .blog {
+    margin-top: 30px;
+    margin-bottom: 20px; }
+    body .blog .fourohfour {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 20px; }
+    body .blog .post {
+      padding-bottom: 12px; }
+      body .blog .post .date {
+        color: #aaa; }
+      body .blog .post .title {
+        margin: 0px;
+        font-family: 'Noto Serif', serif; }
+        body .blog .post .title a {
+          color: #333; }
+        body .blog .post .title button {
+          font-size: 0.5em;
+          position: relative;
+          top: -2px; }
+        body .blog .post .title .less {
+          position: relative;
+          top: -6px;
+          font-size: 0.4em; }
+      body .blog .post .tags {
+        color: #aaa;
+        margin-bottom: 12px; }
+      body .blog .post .content {
+        font-size: 1.6em;
+        margin-bottom: 12px;
+        text-indent: 50px; }
+      body .blog .post .author {
+        color: #aaa; }
+      body .blog .post .attachedFile {
+        text-align: right;
+        font-size: #eee; }
+    body .blog .postedit {
+      font-size: 1.5em; }
+      body .blog .postedit textarea {
+        margin-bottom: 4px; }
+      body .blog .postedit label {
+        position: relative;
+        top: -4px; }
+    body .blog .postSeperator {
+      width: 60%;
+      margin: 0 auto;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 12px; }
+    body .blog .adminLogin {
+      width: 30%;
+      margin: 0 auto;
+      text-align: center; }
+      body .blog .adminLogin input {
+        margin-bottom: 10px; }
+  body .footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    background-color: #fff; }
+
+.uploading {
+  top: 30%;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  font-size: 6em;
+  background-color: #fff; }
+
+.less {
+  font-size: 0.7em;
+  color: #666; }
+
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Serif'), local('NotoSerif'), url(http://themes.googleusercontent.com/static/fonts/notoserif/v2/eCpfeMZI7q4jLksXVRWPQ73hpw3pgy2gAi-Ip7WPMi0.woff) format('woff'); }
+
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Serif Bold'), local('NotoSerif-Bold'), url(http://themes.googleusercontent.com/static/fonts/notoserif/v2/lJAvZoKA5NttpPc9yc6lPXbFhgvWbfSbdVg11QabG8w.woff) format('woff'); }
+
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Noto Serif Italic'), local('NotoSerif-Italic'), url(http://themes.googleusercontent.com/static/fonts/notoserif/v2/HQXBIwLHsOJCNEQeX9kNz6RDOzjiPcYnFooOUGCOsRk.woff) format('woff'); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff'); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff) format('woff'); }

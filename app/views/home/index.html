@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="blog">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="/assets/vendor/bootstrap/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+		<link href="/assets/blog.css" media="all" rel="stylesheet" type="text/css" />
+	</head>
+	<body ng-controller="BlogCtrl">
+		<div class="header col-md-12">
+			<div class="photo"></div>
+			Skinny.js presents
+			<div class="subheader">A blog!</div>
+		</div>
+		<div class="uploading" ng-show="uploading">
+			File uploading... Please wait...
+		</div>
+		<div class="blog col-md-6 col-md-offset-3">
+			<div ng-repeat="post in posts | orderBy: date" ng-show="isPostVisible(post)">
+				<div class="post">
+					<div class="date"></div>
+					<h2 class="title">
+						<a href="/{{ post.title }}">{{ post.title }}</a>
+						<button class="btn btn-xs btn-success" ng-model="post.edit" ng-show="admin" btn-checkbox>Edit post</button>
+						<button class="btn btn-xs btn-danger" ng-show="admin && post.edit" ng-model="post.hidden" btn-checkbox>Hidden: {{ !!post.hidden }}</button>
+						<span class="less" ng-show="admin && !post.edit && post.hidden">This post is hidden</span>
+					</h2>
+					<div class="tags" ng-bind-html="trustAsHtml(formatTags(post.tags))">in {{ formatTags(post.tags) }}</div>
+					<p class="content" ng-bind-html="trustAsHtml(post.content)">{{ post.content }}</p>
+					<div class="attachedFile" ng-show="post.fileName">Click here to listen: <a href="/file/{{ post.fileName }}">{{ post.fileName }}</a></div>
+					<div class="author">posted by {{ post.author }} on {{ formatDate(post.date) }}</div>
+				</div>
+				<div ng-show="post.edit" ng-submit="savePost(post)" class="postedit panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Edit post!</h3>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal" role="form">
+							<span class="less">Hint: The title is used for the direct URL as well - so http://guitartechtourtalk.com/{{ post.title }}</span>
+							<div class="form-group">
+								<label class="control-label col-sm-1">Title:</label>
+								<div class="col-sm-11">
+									<input class="form-control" ng-model="post.title">
+								</div>
+							</div>
+							<span class="less">Hint: You can add a post to the iTunes RSS feed by marking it as a "podcast"</span>
+							<div class="form-group">
+								<label class="control-label col-sm-1">Tags:</label>
+								<div class="col-sm-11">
+									<input class="form-control" ng-change="setTags(post)" ng-model="post.tempTags">
+								</div>
+							</div>
+							<span class="less">Hint: While you type, the content above will automatically preview the post. It won't be visible to the public until you click "Save". You can any HTML here too!</span>
+							<div class="form-group">
+								<label class="control-label col-sm-1">Content:</label>
+								<div class="col-sm-11">
+									<textarea class="form-control" ng-model="post.content"></textarea>
+								</div>
+							</div>
+							<span class="less">Hint: These files are uploaded to Rackspace's CDN network.</span>
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h3 class="panel-title">Upload file:</h3>
+								</div>
+								<div class="panel-body">
+									<input file-model="post.file" type="file" name="file" data-url="/upload">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input type="submit" class="btn btn-warning" value="Save"> -
+									<button ng-show="post._id" ng-click="deletePost(post)" class="btn btn-danger">Delete</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="postSeperator"></div>
+			</div>
+			<div class="fourohfour" ng-show="!!!posts.length">
+				{{ fourohfour }}<br>
+				Perhaps try the <a href="/">front page</a>?
+			</div>
+			<div style="text-align: center;" ng-show="admin">
+				<button class="btn btn-info" ng-click="newPost()">New Post</button>
+				<button class="btn btn-warning" ng-click="logout()">Logout</button>
+			</div>
+		</div>
+		<div class="footer col-md-6 col-md-offset-3">&copy; 2014 All Rights Reserved</div>
+		<script src="/assets/vendor/angular.min.js"></script>
+		<script src="/assets/vendor/ui-bootstrap-tpls-0.10.0.min.js"></script>
+		<!--<script src="/assets/vendor/socket.io.min.js"></script>
+		<script src="/assets/reload.js"></script>-->
+		<script src="/assets/blog.js"></script>
+		<!--<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		  ga('create', '', 'guitartechtourtalk.com');
+		  ga('send', 'pageview');
+		</script>-->
+	</body>
+</html>

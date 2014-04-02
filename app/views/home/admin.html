@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="blog">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Guitar Tech Tour Talk</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="/assets/vendor/bootstrap/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+		<link href="/assets/blog.css" media="all" rel="stylesheet" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+	</head>
+	<body ng-controller="BlogCtrl">
+		<div class="header col-md-12">
+			<div class="photo"></div>
+			<div class="subheader">Guitar Tech Tour Talk</div>
+		</div>
+		<div class="blog col-md-6 col-md-offset-3">
+			<div class="panel panel-danger" ng-show="alert">
+				<div class="panel-heading">{{ alert }}</div>
+				<div class="panel-body">Wrong username or password</div>
+			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">Admin login</div>
+				<div class="panel-body">
+					<form class="form adminLogin" ng-submit="adminLogin()">
+						<input ng-model="loginForm.username" class="form-control" type="text" placeholder="Username">
+						<input ng-model="loginForm.password" class="form-control" type="password" placeholder="Password">
+						<input type="submit" class="btn btn-primary" value="Login">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="footer col-md-6 col-md-offset-3">powered by <a href="http://github.com/erulabs/skinnyjs">skinny.js</a>!</div>
+		<script src="/assets/vendor/angular.min.js"></script>
+		<script src="/assets/vendor/ui-bootstrap-tpls-0.10.0.min.js"></script>
+		<!--<script src="/assets/vendor/socket.io.min.js"></script>
+		<script src="/assets/reload.js"></script>-->
+		<script src="/assets/vendor/hashes.min.js"></script>
+		<script src="/assets/blog.js"></script>
+	</body>
+</html>
